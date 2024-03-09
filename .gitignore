@@ -18,7 +18,7 @@
 
 # misc
 .DS_Store
-.eslint*
+.eslintrc*
 *.pem
 # debug
 npm-debug.log*
