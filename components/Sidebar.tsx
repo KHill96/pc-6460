@@ -36,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({children}) => {
    
     return ( 
         <div className={twMerge(`flex h-full`,lato.className)}>
-            <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
+            <div className="max-lg:hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
                 <SidebarEntryContainer>
                     <div className="flex flex-col gap-y-4 px-5 py-4">
                         {route.map((entry) => (
