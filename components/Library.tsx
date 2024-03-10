@@ -10,7 +10,7 @@ const Library = () => {
                 <MdOutlineLibraryAdd className="text-neutral-400 cursor-pointer hover:text-white transition" size={20}/>
             </div>
             <div className="flex flex-col gap-y-2 mt-4 px-3">
-                Readings and playlists
+               Collections
             </div>
         </div>
      );
