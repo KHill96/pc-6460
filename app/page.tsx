@@ -1,7 +1,15 @@
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+import PageContent from "@/components/PageContent";
+import getStories from "@/actions/getStories";
 
-export default function Home() {
+import Link from "next/link";
+import Image from "next/image";
+
+export const revalidate = 0;
+
+export default async function Home() {
+  const stories = await getStories()
   return (
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
       <Header>
@@ -20,8 +28,8 @@ export default function Home() {
             Newest Additions
           </h1>
         </div>
-      <div>
-        Get most recently added books
+      <div>          
+          <PageContent stories={stories}/>
       </div>
       </div>
     </div>

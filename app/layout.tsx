@@ -9,7 +9,7 @@ import ModalProvider from "@/providers/ModalProvider";
 
 const lato = Lato({ weight:'700', subsets: ["latin"]})
 export const metadata: Metadata = {
-  title: "Project Carthage",
+  title: "6460",
   description: "",
 };
 
