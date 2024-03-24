@@ -5,7 +5,6 @@ import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 import { IoLibrary } from "react-icons/io5";
 const Library = () => {
-
     const {supabaseClient} = useSessionContext()
     const {user} = useUser()
 
@@ -16,16 +15,17 @@ const Library = () => {
             return
         }
         const fetchData = async () => {
-            const { data, error } = await supabaseClient.from('saved_stories').select('*').eq('user_id', user.id)
+            const { data, error } = await supabaseClient.from('saved_stories').select(`user_id, stories(title, author, cover_url)`).eq('user_id',user.id)
             if(!error && data){
-                setSavedStories(data as [])
+                console.log(error)
             }
+            console.log(data)
+            setSavedStories(data as [])
         }
         fetchData()
+
     }, [user?.id, supabaseClient])
 
-
-    console.log(savedStories)
     return ( 
         <div className="flex flex-col">
             <div className="inline-flex gap-x-2 items-center justify-between px-4 py-5">
@@ -35,7 +35,15 @@ const Library = () => {
             <div className="flex flex-col gap-y-2 mt-4 px-3">
                 {user ? (
                     <div>
-                        test
+                        {savedStories ? (
+                            savedStories.map((item) => (
+                             <div>{item.stories.title}</div>
+                            //  <div>{item}</div>
+                        ))):
+                        (
+                            <div>No list</div>
+                        )
+                        }
                     </div>
                ):(
                     <div>
