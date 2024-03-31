@@ -1,13 +1,6 @@
 import Header from "@/components/Header";
-import ListItem from "@/components/ListItem";
-import PageContent from "@/components/PageContent";
-import getStories from "@/actions/getStories";
 
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
 
-import { useRouter } from "next/navigation";
 import StoryContent from "@/components/StoryContent";
 import getStoryInfo from "@/actions/getStoryInfo";
 
@@ -25,7 +18,7 @@ export default async function Read({params} : {params: {id:string}}) {
         </Header>
         <div className="mt-2 mb-7 px-6">
         <div>          
-            <StoryContent details={story} />
+            <StoryContent details={story}/>
         </div>
         </div>
         </div>
