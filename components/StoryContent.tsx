@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import Image from "next/image"
 
 import LikeButton from "./LikeButton"
+import Link from "next/link"
 interface StoryContentPropts {
     details: Story,
 }
@@ -32,21 +33,25 @@ const StoryContent:React.FC<StoryContentPropts> = ({details}) => {
                         <span className="md:text-2xl sm:text-white">{details.author} </span>
                     </div>
                     <div>
-                        <span className="text-xs">
+                        <span className="text-md">
                             {details.description}
                         </span>
                     </div>
-                    <div className="pt-4 pb-10">
+                    <div className="flex flex-row gap-4 pt-5">
+                        <Link className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition" href={'/render/'+details.id}>
+                               <span>Read Now</span>
+                        </Link>
+                        <Link href={details.epub_url} className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"> <span> Download epub</span>  </Link>
+                        <Link href={details.pdf_url} className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"> <span> Download pdf</span>  </Link>
+
+                        <div className="pb-10">
                             <LikeButton storyId={details.id}/>
-                    </div>
-                   
+                        </div>  
                 </div>
-            
+                    </div>
             </div>
             <div className="py-5"></div>
-            <div className="pt-15 m-auto overflow-y-scroll h-80 w-10/12">
-                {parse(details.text)}
-            </div>            
+                        
         </div>
     );
 }

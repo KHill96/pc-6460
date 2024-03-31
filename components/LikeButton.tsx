@@ -56,8 +56,8 @@ const LikeButton:React.FC<LikeButtonProps> = ({storyId}) => {
     }
 
     return (
-        <button onClick={handleLike}className="absolute transition flex items-center bg-white drop-shadow-md rounded-full p-4">
-            <Icon className="text-black" size={30}/>
+        <button onClick={handleLike}className="absolute transition flex items-center bg-white drop-shadow-md rounded-full p-2">
+            <Icon className="text-black" size={25}/>
         </button>
     );
 }

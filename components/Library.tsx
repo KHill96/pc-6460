@@ -4,6 +4,9 @@ import { useUser } from "@/hooks/useUser";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
 import { IoLibrary } from "react-icons/io5";
+import Image from "next/image";
+import Link from "next/link";
+
 const Library = () => {
     const {supabaseClient} = useSessionContext()
     const {user} = useUser()
@@ -15,7 +18,7 @@ const Library = () => {
             return
         }
         const fetchData = async () => {
-            const { data, error } = await supabaseClient.from('saved_stories').select(`user_id, stories(title, author, cover_url)`).eq('user_id',user.id)
+            const { data, error } = await supabaseClient.from('saved_stories').select(`user_id, story_id, stories(title, author, cover_url)`).eq('user_id',user.id)
             if(!error && data){
                 console.log(error)
             }
@@ -37,11 +40,12 @@ const Library = () => {
                     <div>
                         {savedStories ? (
                             savedStories.map((item) => (
-                             <div>{item.stories.title}</div>
-                            //  <div>{item}</div>
+                            <Link href={'/read/'+item.story_id}>
+                                <span className="text-lg flex py-2 rounded-lg bg-neutral-400/5 scale-95 hover:bg-neutral-400/10 hover:scale-100 transition"><Image className="px-2" alt={item.stories.title} src={item.stories.cover_url} width={60} height={60} /><div>{item.stories.title}</div></span>  
+                            </Link>
                         ))):
                         (
-                            <div>No list</div>
+                            <div>Save some content to your favorites and see them here</div>
                         )
                         }
                     </div>

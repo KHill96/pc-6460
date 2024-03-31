@@ -28,7 +28,7 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
         if (error) toast.error(error.message)
         else toast.success("Logged out")
     }
-    
+    var inputValue : string
     return ( 
         <div className={twMerge(`h-fit p-6 bg-gradient-to-b from-sky-800`, className)}>
             <div className="w-full mb-4 flex items-center justify-between ">
@@ -39,15 +39,19 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
                     <button className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" onClick={router.forward}>
                         <TbCaretRightFilled className="text-white" size={30}/>    
                     </button>  
+                <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
+                <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"  onClick={() => {router.push(inputValue)}}>
+                    <FaSearch className="text-black" size={20}/>
+                </button>
                 </div>
                 <div className="flex md:hidden gap-x-2 items-center">
                     <a href="/">
                         <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
                         <ImLibrary className="text-black" size={20}/>
                         </button>
-
                     </a>
-                    <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
+                    <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
+                    <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" onClick={() => {router.push(inputValue)}}>
                         <FaSearch className="text-black" size={20}/>
                     </button>
                 </div>
