@@ -40,7 +40,7 @@ const Library = () => {
                     <div>
                         {savedStories ? (
                             savedStories.map((item) => (
-                            <Link href={'/read/'+item.story_id}>
+                            <Link key={item.story_id} href={'/read/'+item.story_id}>
                                 <span className="text-lg flex py-2 rounded-lg bg-neutral-400/5 scale-95 hover:bg-neutral-400/10 hover:scale-100 transition"><Image className="px-2" alt={item.stories.title} src={item.stories.cover_url} width={60} height={60} /><div>{item.stories.title}</div></span>  
                             </Link>
                         ))):
