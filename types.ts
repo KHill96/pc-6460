@@ -5,7 +5,8 @@ export interface Story {
     text: string
     description: string
     cover_url: string
-    audio_url: string
+    epub_url: string
+    pdf_url: string
 }
 
 export interface UserDetails {
