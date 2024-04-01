@@ -39,10 +39,15 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
                     <button className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" onClick={router.forward}>
                         <TbCaretRightFilled className="text-white" size={30}/>    
                     </button>  
-                <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
-                <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition"  onClick={() => {router.push(inputValue)}}>
-                    <FaSearch className="text-black" size={20}/>
-                </button>
+                    <form className='flex flex-row gap-x-2' onSubmit={(e) => {
+                        e.preventDefault()
+                        router.push(inputValue)
+                        }}>
+                      <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
+                    <button type='submit' className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" onClick={() => {router.push(inputValue)}}>
+                        <FaSearch className="text-black" size={20}/>
+                    </button>
+                    </form>
                 </div>
                 <div className="flex md:hidden gap-x-2 items-center">
                     <a href="/">
@@ -50,10 +55,13 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
                         <ImLibrary className="text-black" size={20}/>
                         </button>
                     </a>
-                    <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
+                    <form className='flex flex-row gap-x-2' onSubmit={(e) => { e.preventDefault()
+                        router.push(inputValue)}}>
+                      <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
                     <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" onClick={() => {router.push(inputValue)}}>
                         <FaSearch className="text-black" size={20}/>
                     </button>
+                    </form>
                 </div>
                 <div className="flex justify-between items-center gap-x-4">
                     {user ? (
