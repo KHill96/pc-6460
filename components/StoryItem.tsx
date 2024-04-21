@@ -19,18 +19,12 @@ const StoryItem:React.FC<StoryItemProps> = ({data}) => {
                 
                 </Link>
                 <div className="flex flex-col items-start w-full pt-4 gap-y-1">
-                <Link  href={"/read/"+data.id} >
-                    <p className="tex-center m-auto pb-2">{data.title}</p>
-                    <p className="text-neutral-400 text-sm w-full truncate">By {data.author}</p>
+                <Link className='break-words' href={"/read/"+data.id} >
+                    <p className="text-center m-auto pb-2">{data.title}</p>
+                    <p className="text-center m-auto text-neutral-400 text-sm w-full truncate"> {data.author}</p>
                 </Link>
                 </div>
-                <div  className="absolute bottom-24 right-5">
-                    {/* <button  className="transition scale-75 opacity-0 rounded-full flex items-center bg-white p-4 drop-shadow-md transltate translate-y-1/
-                    4 group-hover:opacity-100 group-hover:translate-y-0 hover:scale-90">
-                        <FaPlay className="text-black"/>
-                        <span className="px-4 text-black">Play Now</span>
-                    </button> */}
-                </div>
+                
             </div>
     );
 }

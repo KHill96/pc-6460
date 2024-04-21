@@ -11,7 +11,7 @@ export default async function Read({params} : {params: {id:string}}) {
     const story = storyDetails[0]
     return (
 
-        <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
+        <div className="bg-neutral-900 rounded-lg h-full overflow-hidden overflow-y-auto">
         
         <Header className="">
             <div className="mb-4"></div>

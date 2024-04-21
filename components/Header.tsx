@@ -33,12 +33,7 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
         <div className={twMerge(`h-fit p-6 bg-gradient-to-b from-sky-800`, className)}>
             <div className="w-full mb-4 flex items-center justify-between ">
                 <div className="max-lg:hidden md:flex gap-x-2 items-center">
-                    <button className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" onClick={router.back}>
-                        <TbCaretLeftFilled className="text-white" size={30}/>    
-                    </button>
-                    <button className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" onClick={router.forward}>
-                        <TbCaretRightFilled className="text-white" size={30}/>    
-                    </button>  
+                      
                     <form className='flex flex-row gap-x-2' onSubmit={(e) => {
                         e.preventDefault()
                         router.push(inputValue)
@@ -49,38 +44,22 @@ const Header:React.FC<HeaderProps> = ({children, className}) => {
                     </button>
                     </form>
                 </div>
-                <div className="flex md:hidden gap-x-2 items-center">
+                <div className="flex md:hidden gap-x-5 pb-5 items-center justify-center ">
                     <a href="/">
                         <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition">
                         <ImLibrary className="text-black" size={20}/>
                         </button>
                     </a>
-                    <form className='flex flex-row gap-x-2' onSubmit={(e) => { e.preventDefault()
+                    <form className='flex flex-row gap-x-10' onSubmit={(e) => { e.preventDefault()
                         router.push(inputValue)}}>
-                      <input className="rounded-lg bg-white text-black py-1 px-1" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
+                      <input className="rounded-lg bg-white text-black py-1 px-1 w-3/4 sm:text-black" placeholder="Search" onChange={(e) => {inputValue= '/search/'+ e.target.value}}/>
                     <button className="rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" onClick={() => {router.push(inputValue)}}>
                         <FaSearch className="text-black" size={20}/>
                     </button>
                     </form>
                 </div>
                 <div className="flex justify-between items-center gap-x-4">
-                    {user ? (
-                            <div className="flex gap-x-4 items-center">
-                                <Button onClick={handleLogout} className="bg-white px-6 py-2 text-black">Logout</Button>
-                                <Button className="bg-white text-black rounded-full" onClick={() => router.push('/account')}>
-                                    <FaUserAstronaut />
-                                </Button>
-                            </div>
-                        ) : (
-                            <><div>
-                                <Button onClick={onOpen} className="bg-transparent font-medium text-neutral-300">Sign Up</Button>
-                            </div>
-                            <div>
-                                <Button onClick={onOpen} className="px-6 py-2 text-black">Log In</Button>
-                            </div></>
-                        )
                     
-                    }
                 </div>
             </div>
             {children}
