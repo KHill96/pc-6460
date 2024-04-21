@@ -24,9 +24,9 @@ export default function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-            <Sidebar>
+            {/* <Sidebar> */}
                 {children}
-            </Sidebar>
+            {/* </Sidebar> */}
           </UserProvider>
         </SupabaseProvider>
       </body>
