@@ -37,7 +37,10 @@ const StoryContent:React.FC<StoryContentPropts> = ({details}) => {
                 <div className="flex flex-row gap-x-5">
                     <Link href={details.epub_url} className="my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"> <span> Download epub</span>  </Link>
                     <Link href={details.pdf_url} className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"> <span> Download pdf</span>  </Link>
-                    <Link href={"/render/"+details.id} className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"><span>Read Now</span></Link>
+                    {details.readable ? (
+                        <Link href={"/render/"+details.id} className="text-lg my-auto py-2 rounded-lg px-2 bg-neutral-400/10 scale-100 hover:bg-neutral-400/20 hover:scale-110 transition"><span>Read Now</span></Link>
+
+                    ):(<div></div>)}
                 </div>
             </div></>
     );

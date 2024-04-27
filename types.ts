@@ -7,6 +7,7 @@ export interface Story {
     cover_url: string
     epub_url: string
     pdf_url: string
+    readable: boolean
 }
 
 export interface UserDetails {
