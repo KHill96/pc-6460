@@ -6,7 +6,7 @@ const getStories = async(): Promise<Story[]> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     })
-    const { data, error } = await supabase.from('stories').select('*').order('created_at', {ascending: false})
+    const { data, error } = await (await supabase.from('stories').select('*').order('created_at', {ascending: false}).limit(8))
     
     if (error) console.log(error)
     // console.log(data)
